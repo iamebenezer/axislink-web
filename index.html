@@ -60,95 +60,349 @@
   <script src="/new.js"></script>
 </head>
 <style>
-    html{
+    html, body{
         overflow-x: hidden
     }
+    /* Ensure the section is relatively positioned */
+#home {
+    position: relative;
+}
+
+/* Style the video to cover the entire section */
+#home video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1; /* Push the video behind the text */
+}
+
+/* Style the container of text content */
+#home .flex.flex-col.justify-between.items-center.gap-6 {
+    z-index: 10; /* Ensure the text content is above the video */
+}
+
 </style>
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51" >
+<body class="" data-bs-target=".navbar" data-bs-offset="51" >
 
-    <!--======================BG IMAGE======================-->
-    <!-- <img src="" class="bg-body" alt="" /> -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <nav class="hidden md:flex p-3 justify-center items-center">
+                <ul class="space-x-4 flex text-white justify-center items-center">
+                    <a href="" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Home</a>
+                    <a href="" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">About</a>
+                    <a href="" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Features</a>
+                    <a href="">
+                        <img src="/assets/img/logo.png" class="spin-effect w-16" alt="">
+                    </a>
+                    <a href="#tokenomic" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Tokenomics</a>
+                    <a href="" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Roadmap</a>
+                </ul>
+        </nav>
+ 
+<div class="bg-purple-950 md:hidden text-white">
+  <nav class="flex justify-between items-center py-3 px-3 md:px-16">
+    <div>
+      <a href="#" class="text-2xl font-bold">
+        <img src="/assets/img/link.png" class="spin-effect w-12" alt="">
+      </a>
+    </div>
+    <div class="md:hidden">
+      <button id="mobile-menu-btn" class="text-white focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+    
+  </nav>
+  <div id="mobile-menu" class="bg-white text-purple-500  hidden md:hidden">
+    <ul class="px-4 py-2">>
+      <li><a href="#" class="block py-2 px-4 text-lg hover:bg-gray-800 transition duration-300" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Home</a></li>
+      <li><a href="#" class="block py-2 px-4 text-lg  hover:bg-gray-800 transition duration-300" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">About</a></li>
+      <li><a href="#" class="block py-2 px-4 text-lg hover:bg-gray-800 transition duration-300" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Benefits</a></li>
+      <li><a href="#" class="block py-2 px-4 text-lg hover:bg-gray-800 transition duration-300" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Tokenomics</a></li>
+      <li><a href="#" class="block py-2 px-4 text-lg hover:bg-gray-800 transition duration-300 " style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Dapps</a></li>
+    </ul>
+  </div>
+</div>
 
-    <!--======================CONTENT======================-->
-    <div class="no-overflow bg-black ">
+<script>
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
 
-        <!--======================PRELOADER======================-->
-        <!-- <div class="preloader" id="preloader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="loader4">
-                            <span class="loader loader-1"></span>
-                            <span class="loader loader-2"></span>
-                            <span class="loader loader-3"></span>
-                            <span class="loader loader-4"></span>
+       <!-- <div class="row">
+                <div class="col-12 md:hidden">
+                 
+                    <nav class="main-nav ">
+                       
+                        <a href="index.html" class="header-text">
+       
+            <div class="text "></div>
+          </a>
+                  
+                        <ul class="nav">
+                            <li class="scroll-to-section">
+                                <a href="#home" >Home</a>
+                            </li>
+                            <li class="scroll-to-section">
+                                <a href="#about">About</a>
+                            </li>
+                            <li class="scroll-to-section">
+                                <a href="#features">Features</a>
+                            </li>
+                            
+                            <li class="scroll-to-section">
+                                <a href="#whyus">Benefits</a>
+                            </li>
+                            <li class="scroll-to-section">
+                                <a href="#tokenomic">Tokenomics</a>
+                            </li>
+                            <li class="scroll-to-section">
+                                <a href="#roadmap">Roadmap</a>
+                            </li>
+                            <li class="scroll-to-section">
+                                <a href="#dapps">Dapp</a>
+                            </li>
+                            <li class="scroll-to-section">
+                            </li>
+                        </ul>
+                        <a class="menu-trigger">
+            <span>Menu</span>
+          </a>
+                      
+                    </nav>
+                </div>
+            </div>  -->
+        </div> 
+    </header>
+    <div class="bottom-navbar display-none" id="bottom-navbar">
+        <div class="navigation bg-purple-700">
+            <nav>
+                <ul>
+                    <li class="list active">
+                        <a href="#home">
+            <span class="icon">
+              <i class="fa-solid fa-house text-purple-950"></i>
+            </span>
+            <span class="text text-white">Home</span>
+          </a>
+                    </li>
+                    <li class="list">
+                        <a href="#about">
+            <span class="icon">
+              <i class="fa-solid fa-info text-purple-950"></i>
+            </span>
+            <span class="text text-white">About</span>
+          </a>
+                    </li>
+                    
+                    <li class="list">
+                        <a href="#features">
+            <span class="icon">
+              <i class="fa-solid fa-screwdriver-wrench text-purple-950"></i>
+            </span>
+            <span class="text text-white">Features</span>
+          </a>
+                    </li>
+                    <li class="list">
+                        <a href="#whyus">
+            <span class="icon">
+              <i class="fa-solid fa-question text-purple-950"></i>
+            </span>
+            <span class="text text-white">Benefits</span>
+          </a>
+                    </li>
+                    <li class="list">
+                        <a href="#tokenomic">
+            <span class="icon">
+              <i class="fa-solid fa-coins text-purple-950"></i>
+            </span>
+            <span class="text text-white">Tokens</span>
+          </a>
+                    </li>
+                    <li class="list">
+                        <a href="#contact">
+            <span class="icon">
+              <i class="fa-solid fa-phone text-purple-950"></i>
+            </span>
+            <span class="text text-white">Contact</span>
+          </a>
+                    </li>
+                  
+          
+                 
+                    <li class="list">
+                        <a href="https://axislink-dapp.tech">
+            <span class="icon">
+              <i class="fa-solid fa-robot text-purple-950"></i>
+            </span>
+            <span class="text text-white">Dapp</span>
+          </a>
+                    </li>
+                    <div class="indicator"></div>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <style>
+        @font-face {
+font-family: head;
+src: url(/Astrolab.ttf);
+}
+.texts{
+ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
+span, p{
+ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  
+}
+
+    </style>
+
+    <!-- <div id="mobile-menu" class="md:hidden bg-gray-800 p-4 hidden">
+        <a href="#home" class="block text-white texts hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#about" class="block text-white texts hover:text-white px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="#tokenomic" class="block texts text-white hover:text-white px-3 py-2 rounded-md text-base font-medium">Tokenomics</a>
+        <a href="#road" class="block text-white texts hover:text-white px-3 py-2 rounded-md text-base font-medium">Roadmap</a>
+    </div> -->
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('fade-in'); // Toggle fade-in class
+        });
+    </script> 
+
+    
+        <section class="flex md:hidden justify-center flex-col items-center w-screen h-fit mt-20 py-20 bg-center bg-cover bg-no-repeat relative" id="home">
+            <video loop muted autoplay playsinline src="./assets/img/mobile.mp4" class="absolute inset-0 h-screen w-screen object-cover"></video>
+          
+            <div class="flex flex-col justify-between items-center gap-6 relative z-10">
+                <div class="">
+                    <div class="flex justify-center flex-col items-center mx-8">
+                        <h1 class="head text-white text-[40px] md:text-[80px] text-center text-shadow animate__animated animate__pulse animate__infinite	infinite animate__slow	2s">AXISLINK</h1>
+                        <p class="text-white text-center texts text-xl text-shadow">AxisLink Your Gateway to Crypto Connectivity.</p>
+                        <div class="glass-container md:w-fit w-fit justify-center flex-col items-center flex my-4 md:my-10 p-8">
+                            <h2 class="text-white head text-center">Post to Earn Points on Axis Link</h2>
+                            <a href="http://axislink-dapp.tech" class="my-2 bg-white px-6 py-2 rounded-3xl head">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-container-two text-white w-full h-fit p-6">
+                    <div class="marquee text-center">
+                        <span class="head text-center text-sm">Leaderboard</span>
+                        <div class="marquee-inner flex-row flex gap-4">
+                            <a href=""><p class="texts">Login to dapp to check Leaderboard</p></a>
+                            <div class="flex flex-row justify-center items-center my-2">
+                                <!-- <div class="flex flex-row justify-center items-center space-x-2">
+                                    <img src="" class="bg-purple-400 w-12 h-12 rounded-[80px]" alt="">
+                                    <span>Clieo Promise</span>
+                                </div> -->
+                            </div>
+                            <div class="flex flex-row justify-center items-center my-2">
+                                <!-- <div class="flex flex-row justify-center items-center space-x-2">
+                                    <img src="" class="bg-purple-400 w-12 h-12 rounded-[80px]" alt="">
+                                    <span>Clieo Promise</span>
+                                </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-
-        <!-- ==================NAVBAR==================== -->
-        <header class="header-area header-sticky">
-            <div class="container">
-                <nav class="hidden md:flex p-6 justify-center items-center">
-                    <ul class="space-x-4 flex text-white justify-center items-center">
-                        <a href="" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Home</a>
-                        <a href="" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">About</a>
-                        <a href="" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Features</a>
-                        <a href="">
-                            <img src="/assets/img/logo.png" class="spin-effect w-16" alt="">
+        </section>
+        
+        
+        
+        <section class=" hidden absolute top-0 left-0 right-0 bottom-0 md:flex justify-center flex-col items-center w-screen  h-screen bg-center bg-cover bg-no-repeat" id="home">
+            <video loop muted autoplay playsinline src="./assets/img/desktop.mp4" class="absolute inset-0 h-screen w-screen object-cover"></video>
+          
+            <div class="flex justify-between items-center py-4 md:pt-12 px-8">  
+                <div class="hidden md:flex flex-col justify-center border border-purple-900 w-fit h-full p-3 rounded-2xl bg-transparent ">
+                    <ul class="space-y-4 whitespace-nowrap text-center texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">
+                        <span class="text-white text-center head text-xl">Dapp</span>
+                        <a href="http://axislink-dapp.tech">
+                        <li class="text-2xl text-white py-2 px-6  
+                        rounded-xl border-2 border-purple-400" style=" background-image: linear-gradient(to right top, #610298, #61017e, #2e0056, #9f41f1, #43004c, #26003c, #2e0145, #360052, #760083, #4a0047, #9300a9, #862fea);
+                        ">Account <i class="bi bi-person-fill"></i></li>
                         </a>
-                        <a href="#tokenomic" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Tokenomics</a>
-                        <a href="" class="texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Roadmap</a>
+                        <a href="http://axislink-dapp.tech">
+                        <li class="text-2xl text-white py-2 px-6 rounded-xl side dapp-menu hover:border-2 hover:border-purple-400" >Earn Points <i class="fa fa-coins"></i></li>
+                    </a>
+                        <a href="http://axislink-dapp.tech">
+                        
+                            <li class="text-2xl text-white py-2 px-6 rounded-xl side dapp-menu hover:border-2 hover:border-purple-400" >Explore</li>
+                        </a>
+                            <a href="http://axislink-dapp.tech">
+                            
+                            <li class="text-2xl text-white py-2 px-6 rounded-xl side dapp-menu hover:border-2 hover:border-purple-400">Feed</li>
+                        </a>
+                            <a href="http://axislink-dapp.tech">
+                            <li class="text-2xl text-white py-2 px-6 rounded-xl side dapp-menu hover:border-2 hover:border-purple-400">Login<i class="bi bi-door-open"></i></li>
+                        </a>
                     </ul>
-            </nav>
-                <div class="row">
-                    <div class="col-12 md:hidden">
-                     
-                        <nav class="main-nav ">
-                            <!-- ***** Logo Start ***** -->
-                            <a href="index.html" class="header-text">
-                <img src="assets/img/logo.png" class="spin-effect" alt="">
-                <div class="text head">AXISLINK</div>
-              </a>
-                            <!-- ***** Logo End ***** -->
-                            <!-- ***** Menu Start ***** -->
-                            <ul class="nav">
-                                <li class="scroll-to-section">
-                                    <a href="#home" >Home</a>
-                                </li>
-                                <li class="scroll-to-section">
-                                    <a href="#about">About</a>
-                                </li>
-                                <li class="scroll-to-section">
-                                    <a href="#features">Features</a>
-                                </li>
-                                
-                                <li class="scroll-to-section">
-                                    <a href="#whyus">Benefits</a>
-                                </li>
-                                <li class="scroll-to-section">
-                                    <a href="#tokenomic">Tokenomics</a>
-                                </li>
-                                <li class="scroll-to-section">
-                                    <a href="#roadmap">Roadmap</a>
-                                </li>
-                                <li class="scroll-to-section">
-                                    <a href="#dapps">Dapp</a>
-                                </li>
-                                <li class="scroll-to-section">
-                                </li>
-                            </ul>
-                            <a class="menu-trigger">
-                <span>Menu</span>
-              </a>
-                            <!-- ***** Menu End ***** -->
-                        </nav>
-                    </div>
+                    <div class="my-3">
+                        <h2 class="text-white text-center head text-xl">Leaderbord</h2>
+                            <!-- Userss -->
+                            <div class="py-2">
+                                <!-- 1 -->
+                        <div class="flex justify-center items-center my-2 flex-row space-x-2">
+                                <div class="bg-purple-300 w-fit p-4 border-2 border-400-purple  text-white text-center rounded-2xl" style=" background-image: linear-gradient(to right top, #610298, #61017e, #2e0056, #9f41f1, #43004c, #26003c, #2e0145, #360052, #760083, #4a0047, #9300a9, #862fea);">          
+                                   <a href="http://axislink-dapp.tech"><p class="texts">      Login to dapp to check Leaderboard</p></a> 
+                              
+                                </div>
+                                <!-- <span class="text-white">Cleio Promise</span> -->
+                        </div>
+                        <!-- 2 -->
+                   
                 </div>
             </div>
-        </header>
+            </div>
+    <div class="flex justify-center flex-col items-center mx-8">
+                <h1 class="head text-white text-[50px] md:text-[80px] text-center 
+                animate__animated animate__pulse animate__infinite	infinite animate__slow	2s">AXISLINK</h1>
+                    <p class="text-white text-center texts text-shadow md:text-2xl">AxisLink Your Gateway to Crypto Connectivity.</p>
+                <div class="glass-container md:w-fit w-fit justify-center flex-col items-center flex my-4 md:my-10 p-8">
+                        <h2 class="text-white head text-center">Post to Earn Points on Axis Link</h2>
+                        <a href="https://axislink-dapp.tech" class="my-2 bg-white px-6 py-2 rounded-3xl head">Get Started</a>
+                </div>  
+             
+      
+            </div>
+
+            <div class=" gap-y-1 hidden md:flex items-center justify-between flex-col border border-purple-900 w-fit h-full p-1 rounded-lg bg-transparent ">
+
+                <div class="bg-transparent border-b flex-col justify-center flex items-center w-80 h-40">
+                    <div class="p-4 flex-col space-y-3 justify-center flex items-center">
+                        <h1 class="head text-white">News 1</h1>
+                        <a href="" class="bg-purple-950 hover:bg-purple-600 text-white px-4 py-2 rounded-full font-texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Read More</a>
+                    
+                    </div>
+                </div>
+                <div class="bg-transparent  border-b  w-80 h-64 flex-col justify-center flex items-center">
+                    <div class="p-4 flex-col  space-y-3 justify-center flex items-center">
+                        <h1 class="head text-white">News 2</h1>
+                        <a href="" class="bg-purple-950 hover:bg-purple-600 text-white px-4 py-2 rounded-full font-texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Read More</a>
+                    
+                    </div>
+                </div>
+                <div class="bg-transparent  w-80 h-40 flex-col justify-center flex items-center">
+                    <div class="p-4 flex-col  space-y-3 justify-center flex items-center">
+                        <h1 class="head text-white">News 3</h1>
+                        <a href="" class="bg-purple-950 hover:bg-purple-600 text-white px-4 py-2 rounded-full font-texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Read More</a>
+                    
+                    </div>
+                </div>
+        </div>   
+
+        </div>
+</section>
+
         <style>
             @font-face {
     font-family: head;
@@ -162,574 +416,340 @@ span, p{
 }
 
         </style>
-        <div id="mobile-menu" class="md:hidden bg-gray-800 p-4 hidden">
-            <a href="#home" class="block text-white texts hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
-            <a href="#about" class="block text-white texts hover:text-white px-3 py-2 rounded-md text-base font-medium">About</a>
-            <a href="#tokenomic" class="block texts text-white hover:text-white px-3 py-2 rounded-md text-base font-medium">Tokenomics</a>
-            <a href="#road" class="block text-white texts hover:text-white px-3 py-2 rounded-md text-base font-medium">Roadmap</a>
-        </div>
-        
-        <script>
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-        
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('fade-in'); // Toggle fade-in class
-            });
-        </script> 
-        
-        <div class="bottom-navbar display-none" id="bottom-navbar">
-            <div class="navigation bg-purple-700">
-                <nav>
-                    <ul>
-                        <li class="list active">
-                            <a href="#home">
-                <span class="icon">
-                  <i class="fa-solid fa-house text-purple-950"></i>
-                </span>
-                <span class="text text-white">Home</span>
-              </a>
-                        </li>
-                        <li class="list">
-                            <a href="#about">
-                <span class="icon">
-                  <i class="fa-solid fa-info text-purple-950"></i>
-                </span>
-                <span class="text text-white">About</span>
-              </a>
-                        </li>
-                        
-                        <li class="list">
-                            <a href="#features">
-                <span class="icon">
-                  <i class="fa-solid fa-screwdriver-wrench text-purple-950"></i>
-                </span>
-                <span class="text text-white">Features</span>
-              </a>
-                        </li>
-                        <li class="list">
-                            <a href="#whyus">
-                <span class="icon">
-                  <i class="fa-solid fa-question text-purple-950"></i>
-                </span>
-                <span class="text text-white">Benefits</span>
-              </a>
-                        </li>
-                        <li class="list">
-                            <a href="#tokenomic">
-                <span class="icon">
-                  <i class="fa-solid fa-coins text-purple-950"></i>
-                </span>
-                <span class="text text-white">Tokens</span>
-              </a>
-                        </li>
-                        <li class="list">
-                            <a href="#contact">
-                <span class="icon">
-                  <i class="fa-solid fa-phone text-purple-950"></i>
-                </span>
-                <span class="text text-white">Contact</span>
-              </a>
-                        </li>
-                      
+         <section class="relative bg-[url('./assets/img/bg-2.png')] w-screen h-fit bg-cover bg-no-repeat   p-4 md:p-12" id="about"> 
+            <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
+              <source src="/new.mp4" type="video/mp4">
               
-                     
-                        <li class="list">
-                            <a href="https://axislink-dapp.tech">
-                <span class="icon">
-                  <i class="fa-solid fa-robot text-purple-950"></i>
-                </span>
-                <span class="text text-white">Dapp</span>
-              </a>
-                        </li>
-                        <div class="indicator"></div>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div className="overlay"></div> 
-        <div class="hidden md:flex">
-        <video src="./assets/img/desktop.mp4" loop autoPlay muted className='h-screen w-screen object-cover hidden md:flex'></video>
-   
-    </div>
-        <div class="flex md:hidden h-screen w-screen">
-        <!-- <video  id="mobileVideo" src="./assets/img/mobile.mp4" loop autoPlay muted className='h-screen w-screen object-contain flex bg-no-repeat'></video>
-     -->
-     <video loop muted autoplay playsinline src="./assets/img/mobile.mp4" class="h-screen w-screen object-cover"></video>
-    </div>
-    <!-- Mobile -->
-    <section class="flex absolute top-0 left-0 right-0 bottom-0 md:hidden justify-center flex-col items-center w-screen h-screen bg-center bg-cover bg-no-repeat" id="home">
-     
-        <div class="flex flex-col justify-between items-center gap-6">
-           
-            <div class="">
-                <div class="flex justify-center flex-col items-center mx-8">
-                    <h1 class="head text-white text-[40px] md:text-[80px] text-center text-shadow
-                    animate__animated animate__pulse animate__infinite	infinite animate__slow	2s
-                    ">AXISLINK</h1>
-                    <p class="text-white text-center texts text-xl text-shadow">AxisLink Your Gateway to Crypto Connectivity.</p>
-                    <div class="glass-container md:w-fit w-fit justify-center flex-col items-center flex my-4 md:my-10 p-8">
-                        <h2 class="text-white head text-center">Post to Earn Points on Axis Link</h2>
-                        <a href="http://axislink-dapp.tech" class="my-2 bg-white px-6 py-2 rounded-3xl head">Get Started</a>
+            </video> 
+                <div class="grid grid-cols- p-6 md:p-121 md:grid-cols-2 place-items-center " data-aos="fade-up"
+                data-aos-duration="1000">
+                    <div class="space-y-8 flex justify-center items-center md:items-start flex-col" >
+                        <h1 class="text-[30px] md:text-[50px] text-center
+                         text-white head  animate__animated animate__pulse animate__infinite	infinite animate__slow	2s  ">About us</h1>
+                      
+                        <!-- <h1 class="text-2xl md:text-[40px] sm:text-center md:text-start text-white head ">About us</h1>
+                       -->
+                        <p class="text-xl md:text-[25px] font-extrabold 
+                        text-center md:text-start text-white">
+                            AxisLink Your Gateway to 
+                            <span class="text-purple-300">Crypto Connectivity.</span>
+                        </p>
+                        <p class="text-xl md:text-[25px]  md:text-start text-white"  style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">
+                            Welcome to AxisLink – your premier destination for staying connected and informed in the world of cryptocurrency.
+                             At AxisLink, we're dedicated to providing you with a comprehensive platform where you can discover the latest news,
+                              share valuable insights, earn points which can be swapped to eth and engage with a vibrant community of crypto enthusiasts. <br> <br>
+                               Whether you're a seasoned trader, a blockchain developer, or simply curious about the world of digital assets,
+                             AxisLink offers a central hub for all your cryptocurrency needs.
+                              Join us on this exciting journey as we revolutionize the way you experience and interact with the crypto space. <br> <br>
+                              Welcome aboard!
+                        </p>
+                    </div>
+                    <div class="" data-aos="fade-left"
+                    data-aos-duration="1500">
+                            <img src="/assets/img/bot 6.png" class="floating-element w-80 md:w-fit" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="glass-container-two text-white w-full h-fit p-6">
-                <div class="marquee text-center">
-                    <span class="head text-center text-sm">Leaderboard</span>
-                    <div class="marquee-inner flex-row flex gap-4">
-                        <a href=""><p class="texts">      Login to dapp to check Leaderboard</p></a> 
-                                          
-                        <div class="flex flex-row justify-center items-center my-2">
-                            <!-- <div class="flex flex-row justify-center items-center space-x-2">
-                                <img src="" class="bg-purple-400 w-12 h-12 rounded-[80px]" alt="">
-                                <span>Clieo Promise</span>
-                            </div> -->
+            
+        </section>
+        <section class="relative bg-[url('./assets/img/bg-2.png')] w-screen h-fit bg-cover bg-no-repeat  p-4 md:p-12" id="features"> 
+            <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
+                <source src="/new.mp4" type="video/mp4">
+                
+              </video>   
+            <div class="flex flex-col p-6 justify-center items-center" data-aos="fade-up"
+                data-aos-duration="1000">
+                    <h1 class="text-white text-center text-[30px] md:text-[50px] head animate__animated animate__pulse animate__infinite	infinite animate__slow	2s">Features</h1>
+                    <p class="text-white text-center">The follwing are features of axislink.</p>
+                </div>
+                <div class="grid  grid-col-1 glow p-6 md:p-12 gap-4 place-items-center md:grid-cols-3" data-aos="fade-up"
+                data-aos-duration="1000">
+                    <div class="glow-border " data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
+                            <div class="text-white shadow-sm flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                                <h2 class="head text-center md:text-start">News Feed</h2>
+                                <p class="text-center md:text-start"> Stay updated with the latest news and developments in the cryptocurrency space.
+                                </p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon-3.webp" class="w-32" alt="">
+                            </div>
                         </div>
-                        <div class="flex flex-row justify-center items-center my-2">
-                            <!-- <div class="flex flex-row justify-center items-center space-x-2">
-                                <img src="" class="bg-purple-400 w-12 h-12 rounded-[80px]" alt="">
-                                <span>Clieo Promise</span>
-                            </div> -->
+                    </div>
+                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
+                            <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                              
+                                <h2 class="head text-center md:text-start">Content Sharing</h2>
+                                <p class="text-center md:text-start">Share your own news articles, insights, and analysis with the community.</p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon-1.webp" class="w-32" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
+                            <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                              
+                                <h2 class="head text-center md:text-start">Social Engagement</h2>
+                                <p class="text-center md:text-start"> Interact with posts by liking, commenting, and retweeting.</p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon-9.webp" class="w-32" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
+                            <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                              
+                                <h2 class="head text-center md:text-start">Follower Growth</h2>
+                                <p class="text-center md:text-start">Grow your followers on the platform for engagement and promotion.</p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon-5.webp" class="w-32" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
+                            <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                              
+                                <h2 class="head text-center md:text-start">Premium Membership</h2>
+                                <p class="text-center md:text-start">Access exclusive content, ad-free experience, and enhanced analytics.</p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon-6.webp" class="w-32" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
+                            <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                              
+                                <h2 class="head text-center md:text-start">Token Rewards System</h2>
+                                <p class="text-center md:text-start"> Earn points for valuable contributions and interactions, redeemable for ETH.</p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon-2.png" class="w-32" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
+                            <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                              
+                                <h2 class="head text-center md:text-start">Copyright Detection</h2>
+                                <p class="text-center md:text-start">  Implement measures to detect and prevent copyright infringement.</p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon1.webp" class="w-32" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
+                            <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                              
+                                <h2 class="head text-center md:text-start">Content Moderation</h2>
+                                <p class="text-center md:text-start"> Ensure content quality and compliance with community guidelines.</p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon-4.webp" class="w-32" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                        <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xlmd:mx-2 md:items-center">
+                            <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
+                              
+                                <h2 class="head text-center md:text-start">Penalty System</h2>
+                                <p class="text-center md:text-start">Deduct points for guideline violations, such as copyright infringement or reposting duplicate content.</p>
+                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                          
+                            </div>
+                            <!-- img -->
+                            <div>
+                                <img src="/assets/img/icon-8.webp" class="w-32" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+        </section  >
+    <section class="relative bg-[url('./assets/img/bg-1.png')] w-screen h-fit bg-cover bg-no-repeat   p-3 md:p-12" id="whyus">
+        <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
+            <source src="/new.mp4" type="video/mp4">
+            
+          </video> 
+        <div class="flex flex-col justify-center items-center  p-6 "  data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-white text-center head text-[30px] md:text-[50px] animate__animated animate__pulse animate__infinite	infinite animate__slow	2s">Benefits</h1>
+            <!-- <p class="text-white text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
+        
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 p-6 md:p-12 gap-4 place-items-center"  data-aos="fade-up" data-aos-duration="1000">
+            <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
+                        <h2 class="head">Stay Informed</h2>
+                        <p>AxisLink keeps you informed with real-time news and updates from the cryptocurrency world, helping you make informed decisions.
+
+                        </p>
+                        <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                    </div>
+                    <!-- img -->
+                    
+                </div>
+            </div>
+            <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
+                        <h2 class="head">Share Knowledge</h2>
+                        <p>Share your expertise and insights with a global audience, contributing to the collective knowledge base of the crypto community.
+
+                        </p>
+                        <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                    </div>
+                    <!-- img -->
+                    
+                </div>
+            </div>
+            <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
+                        <h2 class="head">Connect with Peers</h2>
+                        <p>Connect and engage with like-minded individuals, build relationships, and collaborate on projects within the AxisLink community.
+
+                        </p>
+                        <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                    </div>
+                    <!-- img -->
+                    
+                </div>
+            </div>
+            <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
+                        <h2 class="head">Earn Rewards</h2>
+                        <p>Earn rewards for your contributions and interactions, recognizing and incentivizing your valuable contributions to the platform.
+                        </p>
+                        <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                    </div>
+                    <!-- img -->
+                    
+                </div>
+            </div>
+            <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
+                        <h2 class="head">Access Premium Features</h2>
+                        <p>Enjoy exclusive benefits and features with a premium membership, enhancing your user experience and providing added value.
+                        </p>
+                        <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                    </div>
+                    <!-- img -->
+                    
+                </div>
+            </div>
+            <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
+                        <h2 class="head">Protect Intellectual Property</h2>
+                        <p>AxisLink's copyright protection measures ensure that your content
+                            is protected and respected, fostering a fair and respectful environment for creators.
+                        </p>
+                        <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                    </div>
+                    <!-- img -->
+                    
+                </div>
+            </div>
+            <div class="glow-border"  data-aos="flip-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
+                        <h2 class="head">Grow Your Influence</h2>
+                        <p>Build your influence and reputation within the cryptocurrency community, establishing yourself as a trusted voice and thought leader.
+                        </p>
+                        <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                    </div>
+                    <!-- img -->
+                    
+                </div>
+            </div>
+            <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="text-white text-center shadow-md flex justify-center items-center  flex-col p-4 ">
+                        <h2 class="head">Monetize Your Content</h2>
+                        <p>Explore monetization opportunities to earn revenue from your content, turning your passion for crypto into a source of income.
+                        </p>
+                        <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
+                    </div>
+                    <!-- img -->
+                    
+                </div>
             </div>
         </div>
+
+
     </section>
 
-        <section class=" hidden absolute top-0 left-0 right-0 bottom-0 md:flex justify-center flex-col items-center w-screen  h-screen bg-center bg-cover bg-no-repeat" id="home">
-                        <div class="flex justify-between items-center py-4 md:pt-12 px-8">  
-                            <div class="hidden md:flex flex-col justify-center border border-purple-900 w-fit h-full p-3 rounded-2xl bg-transparent ">
-                                <ul class="space-y-4 whitespace-nowrap text-center texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">
-                                    <span class="text-white text-center head text-xl">Dapp</span>
-                                    <a href="http://axislink-dapp.tech">
-                                    <li class="text-2xl text-white py-2 px-6  
-                                    rounded-xl border-2 border-purple-400" style=" background-image: linear-gradient(to right top, #610298, #61017e, #2e0056, #9f41f1, #43004c, #26003c, #2e0145, #360052, #760083, #4a0047, #9300a9, #862fea);
-                                    ">Account <i class="bi bi-person-fill"></i></li>
-                                    </a>
-                                    <a href="http://axislink-dapp.tech">
-                                    <li class="text-2xl text-white py-2 px-6 rounded-xl side dapp-menu hover:border-2 hover:border-purple-400" >Earn Points <i class="fa fa-coins"></i></li>
-                                </a>
-                                    <a href="http://axislink-dapp.tech">
-                                    
-                                        <li class="text-2xl text-white py-2 px-6 rounded-xl side dapp-menu hover:border-2 hover:border-purple-400" >Explore</li>
-                                    </a>
-                                        <a href="http://axislink-dapp.tech">
-                                        
-                                        <li class="text-2xl text-white py-2 px-6 rounded-xl side dapp-menu hover:border-2 hover:border-purple-400">Feed</li>
-                                    </a>
-                                        <a href="http://axislink-dapp.tech">
-                                        <li class="text-2xl text-white py-2 px-6 rounded-xl side dapp-menu hover:border-2 hover:border-purple-400">Login<i class="bi bi-door-open"></i></li>
-                                    </a>
-                                </ul>
-                                <div class="my-3">
-                                    <h2 class="text-white text-center head text-xl">Leaderbord</h2>
-                                        <!-- Userss -->
-                                        <div class="py-2">
-                                            <!-- 1 -->
-                                    <div class="flex justify-center items-center my-2 flex-row space-x-2">
-                                            <div class="bg-purple-300 w-fit p-4 border-2 border-400-purple  text-white text-center rounded-2xl" style=" background-image: linear-gradient(to right top, #610298, #61017e, #2e0056, #9f41f1, #43004c, #26003c, #2e0145, #360052, #760083, #4a0047, #9300a9, #862fea);">          
-                                               <a href="http://axislink-dapp.tech"><p class="texts">      Login to dapp to check Leaderboard</p></a> 
-                                          
-                                            </div>
-                                            <!-- <span class="text-white">Cleio Promise</span> -->
-                                    </div>
-                                    <!-- 2 -->
-                               
-                            </div>
-                        </div>
-                        </div>
-                <div class="flex justify-center flex-col items-center mx-8">
-                            <h1 class="head text-white text-[50px] md:text-[80px] text-center 
-                            animate__animated animate__pulse animate__infinite	infinite animate__slow	2s">AXISLINK</h1>
-                                <p class="text-white text-center texts text-shadow md:text-2xl">AxisLink Your Gateway to Crypto Connectivity.</p>
-                            <div class="glass-container md:w-fit w-fit justify-center flex-col items-center flex my-4 md:my-10 p-8">
-                                    <h2 class="text-white head text-center">Post to Earn Points on Axis Link</h2>
-                                    <a href="https://axislink-dapp.tech" class="my-2 bg-white px-6 py-2 rounded-3xl head">Get Started</a>
-                            </div>  
-                         
-                  
-                        </div>
-
-                        <div class=" gap-y-1 hidden md:flex items-center justify-between flex-col border border-purple-900 w-fit h-full p-1 rounded-lg bg-transparent ">
-
-                            <div class="bg-transparent border-b flex-col justify-center flex items-center w-80 h-40">
-                                <div class="p-4 flex-col space-y-3 justify-center flex items-center">
-                                    <h1 class="head text-white">News 1</h1>
-                                    <a href="" class="bg-purple-950 hover:bg-purple-600 text-white px-4 py-2 rounded-full font-texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Read More</a>
-                                
-                                </div>
-                            </div>
-                            <div class="bg-transparent  border-b  w-80 h-64 flex-col justify-center flex items-center">
-                                <div class="p-4 flex-col  space-y-3 justify-center flex items-center">
-                                    <h1 class="head text-white">News 2</h1>
-                                    <a href="" class="bg-purple-950 hover:bg-purple-600 text-white px-4 py-2 rounded-full font-texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Read More</a>
-                                
-                                </div>
-                            </div>
-                            <div class="bg-transparent  w-80 h-40 flex-col justify-center flex items-center">
-                                <div class="p-4 flex-col  space-y-3 justify-center flex items-center">
-                                    <h1 class="head text-white">News 3</h1>
-                                    <a href="" class="bg-purple-950 hover:bg-purple-600 text-white px-4 py-2 rounded-full font-texts" style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">Read More</a>
-                                
-                                </div>
-                            </div>
-                    </div>   
-
-                    </div>
-            </section>
-            <!-- End of hero -->
-            <!-- About -->  
-           
-              
-                
-
-            <section class="relative bg-[url('./assets/img/bg-2.png')] w-screen h-fit bg-cover bg-no-repeat mx-2 md:mx-12 p-4 md:p-12" id="about"> 
-                <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
-                  <source src="/new.mp4" type="video/mp4">
-                  
-                </video> 
-                    <div class="grid grid-cols- p-6 md:p-121 md:grid-cols-2 place-items-center " data-aos="fade-up"
-                    data-aos-duration="1000">
-                        <div class="space-y-8 flex justify-center items-center md:items-start flex-col" >
-                            <h1 class="text-[30px] md:text-[50px] text-center
-                             text-white head  animate__animated animate__pulse animate__infinite	infinite animate__slow	2s  ">About us</h1>
-                          
-                            <!-- <h1 class="text-2xl md:text-[40px] sm:text-center md:text-start text-white head ">About us</h1>
-                           -->
-                            <p class="text-xl md:text-[25px] font-extrabold 
-                            text-center md:text-start text-white">
-                                AxisLink Your Gateway to 
-                                <span class="text-purple-300">Crypto Connectivity.</span>
-                            </p>
-                            <p class="text-xl md:text-[25px]  md:text-start text-white"  style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">
-                                Welcome to AxisLink – your premier destination for staying connected and informed in the world of cryptocurrency.
-                                 At AxisLink, we're dedicated to providing you with a comprehensive platform where you can discover the latest news,
-                                  share valuable insights, earn points which can be swapped to eth and engage with a vibrant community of crypto enthusiasts. <br> <br>
-                                   Whether you're a seasoned trader, a blockchain developer, or simply curious about the world of digital assets,
-                                 AxisLink offers a central hub for all your cryptocurrency needs.
-                                  Join us on this exciting journey as we revolutionize the way you experience and interact with the crypto space. <br> <br>
-                                  Welcome aboard!
-                            </p>
-                        </div>
-                        <div class="" data-aos="fade-left"
-                        data-aos-duration="1500">
-                                <img src="/assets/img/bot 6.png" class="floating-element w-80 md:w-fit" alt="">
-                        </div>
-                    </div>
-                
-            </section>
-
-            <section class="relative bg-[url('./assets/img/bg-2.png')] w-screen h-fit bg-cover bg-no-repeat mx-2 md:mx-12 p-4 md:p-12" id="features"> 
-                <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
-                    <source src="/new.mp4" type="video/mp4">
-                    
-                  </video>   
-                <div class="flex flex-col p-6 justify-center items-center" data-aos="fade-up"
-                    data-aos-duration="1000">
-                        <h1 class="text-white text-center text-[30px] md:text-[50px] head animate__animated animate__pulse animate__infinite	infinite animate__slow	2s">Features</h1>
-                        <p class="text-white text-center">The follwing are features of axislink.</p>
-                    </div>
-                    <div class="grid  grid-col-1 glow p-6 md:p-12 gap-4 place-items-center md:grid-cols-3" data-aos="fade-up"
-                    data-aos-duration="1000">
-                        <div class="glow-border " data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
-                                <div class="text-white shadow-sm flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                    <h2 class="head text-center md:text-start">News Feed</h2>
-                                    <p class="text-center md:text-start"> Stay updated with the latest news and developments in the cryptocurrency space.
-                                    </p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon-3.webp" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
-                                <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                  
-                                    <h2 class="head text-center md:text-start">Content Sharing</h2>
-                                    <p class="text-center md:text-start">Share your own news articles, insights, and analysis with the community.</p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon-1.webp" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
-                                <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                  
-                                    <h2 class="head text-center md:text-start">Social Engagement</h2>
-                                    <p class="text-center md:text-start"> Interact with posts by liking, commenting, and retweeting.</p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon-9.webp" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
-                                <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                  
-                                    <h2 class="head text-center md:text-start">Follower Growth</h2>
-                                    <p class="text-center md:text-start">Grow your followers on the platform for engagement and promotion.</p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon-5.webp" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
-                                <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                  
-                                    <h2 class="head text-center md:text-start">Premium Membership</h2>
-                                    <p class="text-center md:text-start">Access exclusive content, ad-free experience, and enhanced analytics.</p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon-6.webp" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
-                                <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                  
-                                    <h2 class="head text-center md:text-start">Token Rewards System</h2>
-                                    <p class="text-center md:text-start"> Earn points for valuable contributions and interactions, redeemable for ETH.</p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon-2.png" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
-                                <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                  
-                                    <h2 class="head text-center md:text-start">Copyright Detection</h2>
-                                    <p class="text-center md:text-start">  Implement measures to detect and prevent copyright infringement.</p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon1.webp" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xl md:mx-2 md:items-center">
-                                <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                  
-                                    <h2 class="head text-center md:text-start">Content Moderation</h2>
-                                    <p class="text-center md:text-start"> Ensure content quality and compliance with community guidelines.</p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon-4.webp" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                            <div class="flex flex-col md:flex-row justify-center items-center md:justify-between h-fit w-fit rounded-3xl shadow-purple-900 shadow-xlmd:mx-2 md:items-center">
-                                <div class="text-white shadow-md flex justify-center items-center  md:items-start flex-col md:text-start p-4 ">
-                                  
-                                    <h2 class="head text-center md:text-start">Penalty System</h2>
-                                    <p class="text-center md:text-start">Deduct points for guideline violations, such as copyright infringement or reposting duplicate content.</p>
-                                    <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                              
-                                </div>
-                                <!-- img -->
-                                <div>
-                                    <img src="/assets/img/icon-8.webp" class="w-32" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-            </section  >
-          
-            <section class="relative bg-[url('./assets/img/bg-1.png')] w-screen h-fit bg-cover bg-no-repeat  mx-2 md:mx-12 p-3 md:p-12" id="whyus">
-                <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
-                    <source src="/new.mp4" type="video/mp4">
-                    
-                  </video> 
-                <div class="flex flex-col justify-center items-center  p-6 "  data-aos="fade-up" data-aos-duration="1000">
-                    <h1 class="text-white text-center head text-[30px] md:text-[50px] animate__animated animate__pulse animate__infinite	infinite animate__slow	2s">Benefits</h1>
-                    <!-- <p class="text-white text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
-                
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 p-6 md:p-12 gap-4 place-items-center"  data-aos="fade-up" data-aos-duration="1000">
-                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                        <div class="flex flex-col justify-center items-center">
-                            <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
-                                <h2 class="head">Stay Informed</h2>
-                                <p>AxisLink keeps you informed with real-time news and updates from the cryptocurrency world, helping you make informed decisions.
-
-                                </p>
-                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                            </div>
-                            <!-- img -->
-                            
-                        </div>
-                    </div>
-                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                        <div class="flex flex-col justify-center items-center">
-                            <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
-                                <h2 class="head">Share Knowledge</h2>
-                                <p>Share your expertise and insights with a global audience, contributing to the collective knowledge base of the crypto community.
-
-                                </p>
-                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                            </div>
-                            <!-- img -->
-                            
-                        </div>
-                    </div>
-                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                        <div class="flex flex-col justify-center items-center">
-                            <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
-                                <h2 class="head">Connect with Peers</h2>
-                                <p>Connect and engage with like-minded individuals, build relationships, and collaborate on projects within the AxisLink community.
-
-                                </p>
-                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                            </div>
-                            <!-- img -->
-                            
-                        </div>
-                    </div>
-                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                        <div class="flex flex-col justify-center items-center">
-                            <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
-                                <h2 class="head">Earn Rewards</h2>
-                                <p>Earn rewards for your contributions and interactions, recognizing and incentivizing your valuable contributions to the platform.
-                                </p>
-                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                            </div>
-                            <!-- img -->
-                            
-                        </div>
-                    </div>
-                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                        <div class="flex flex-col justify-center items-center">
-                            <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
-                                <h2 class="head">Access Premium Features</h2>
-                                <p>Enjoy exclusive benefits and features with a premium membership, enhancing your user experience and providing added value.
-                                </p>
-                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                            </div>
-                            <!-- img -->
-                            
-                        </div>
-                    </div>
-                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                        <div class="flex flex-col justify-center items-center">
-                            <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
-                                <h2 class="head">Protect Intellectual Property</h2>
-                                <p>AxisLink's copyright protection measures ensure that your content
-                                    is protected and respected, fostering a fair and respectful environment for creators.
-                                </p>
-                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                            </div>
-                            <!-- img -->
-                            
-                        </div>
-                    </div>
-                    <div class="glow-border"  data-aos="flip-right" data-aos-duration="1000">
-                        <div class="flex flex-col justify-center items-center">
-                            <div class="text-center text-white shadow-md flex justify-center items-center  flex-col p-4 ">
-                                <h2 class="head">Grow Your Influence</h2>
-                                <p>Build your influence and reputation within the cryptocurrency community, establishing yourself as a trusted voice and thought leader.
-                                </p>
-                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                            </div>
-                            <!-- img -->
-                            
-                        </div>
-                    </div>
-                    <div class="glow-border "  data-aos="flip-right" data-aos-duration="1000">
-                        <div class="flex flex-col justify-center items-center">
-                            <div class="text-white text-center shadow-md flex justify-center items-center  flex-col p-4 ">
-                                <h2 class="head">Monetize Your Content</h2>
-                                <p>Explore monetization opportunities to earn revenue from your content, turning your passion for crypto into a source of income.
-                                </p>
-                                <!-- <a href="" class="bg-purple-400 px-2 py-1 my-2 hover:bg-purple-950 rounded-md head text-sm">Dapps</a> -->
-                            </div>
-                            <!-- img -->
-                            
-                        </div>
-                    </div>
-                </div>
-
-
-            </section>
-
-                <section class="relative bg-[url('./assets/img/bg-2.png')] w-screen h-fit bg-cover bg-no-repeat mx-2 md:mx-12 p-3 md:p-12" id="tokenomic">
-                    <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
-                        <source src="/new.mp4" type="video/mp4">
-                        
-                      </video>     
-                    <div class="flex flex-col justify-center p-6 items-center"  data-aos="fade-up" data-aos-duration="1000">
-                            <h1 class="text-white text-center text-[30px] md:text-[50px] animate__animated animate__pulse animate__infinite	infinite animate__slow	2s head">Tokenomics</h1>
-                            <p class="text-white text-center"></p>
-                        </div>
-                    <div class=" grid grid-cols-1 py-6 md:py-2 mt-6  md:grid-cols-1 place-items-center gap-6">
-                    <div class="glow-border glass-container-two w-80 md:w-fit h-fit md:h-52 grid grid-col-1 p-6 md:p-2 gap-2 place-items-center md:grid-cols-5">
-                      
-                                <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
-                                    <h1 class="head">10,000,000</h1>
-                                    <span class="texts">Total Supply of $AXL</span>
-                                </div>
-                                <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-                                    <h1 class="head"> 75%</h1>
-                                    <span class="texts">Liquidity pool of total supply </span>
-                                </div>
-                                <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                                    <h1 class="head">15%</h1>
-                                    <span class="texts">Marketing</span>
-                                </div>
-                                <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                                    <h1 class="head">5%</h1>
-                                    <span class="texts">Team (locked and vested ) </span>
-                                </div>
-                                
-                                <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                                    <h1 class="head">5%</h1>
-                                    <span class="texts">Ecosystem  </span>
-                                </div>
-
-                    </div>
-                    <div>
-                    <img src="/assets/img/bot 5.png" class="w-80 floating-element" alt="">
-                </div>
-                </div>
-                </section>    
-            <!--    <section class="bg-[url('./assets/img/bg-1.png')] w-screen h-fit bg-cover mx-2 md:mx-12 p-3 md:p-12 " id="how">-->
-            <!--        <div class="flex flex-col justify-center items-center p-6" data-aos="fade-up" data-aos-duration="1000">-->
-            <!--            <h1 class="text-white text-center text-[30px] md:text-[50px] animate__animated animate__pulse animate__infinite	infinite animate__slow	2s  head">How to use Dapps</h1>-->
-            <!--            <p class="text-white text-center"></p>-->
-            <!--        </div>-->
+    <section class="relative bg-[url('./assets/img/bg-2.png')] w-screen h-fit bg-cover bg-no-repeat p-3 md:p-12" id="tokenomic">
+        <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
+            <source src="/new.mp4" type="video/mp4">
             
-            <!--</section> -->
+          </video>     
+        <div class="flex flex-col justify-center p-6 items-center"  data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-white text-center text-[30px] md:text-[50px] animate__animated animate__pulse animate__infinite	infinite animate__slow	2s head">Tokenomics</h1>
+                <p class="text-white text-center"></p>
+            </div>
+        <div class=" grid grid-cols-1 py-6 md:py-2 mt-6  md:grid-cols-1 place-items-center gap-6">
+        <div class="glow-border glass-container-two w-80 md:w-fit h-fit md:h-52 grid grid-col-1 p-6 md:p-2 gap-2 place-items-center md:grid-cols-5">
+          
+                    <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+                        <h1 class="head">10,000,000</h1>
+                        <span class="texts">Total Supply of $AXL</span>
+                    </div>
+                    <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+                        <h1 class="head"> 75%</h1>
+                        <span class="texts">Liquidity pool of total supply </span>
+                    </div>
+                    <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                        <h1 class="head">15%</h1>
+                        <span class="texts">Marketing</span>
+                    </div>
+                    <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                        <h1 class="head">5%</h1>
+                        <span class="texts">Team (locked and vested ) </span>
+                    </div>
+                    
+                    <div class="flex-col text-white text-center flex justify-center items-center p-2" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                        <h1 class="head">5%</h1>
+                        <span class="texts">Ecosystem  </span>
+                    </div>
 
-            <section class="relative bg-[url('./assets/img/bg-2.png')] w-screen h-screen bg-cover mx-2 md:mx-12 p-3 md:p-12 " id="contact">
+        </div>
+        <div>
+        <img src="/assets/img/bot 5.png" class="w-80 floating-element" alt="">
+    </div>
+    </div>
+    </section>    
+            <section class="relative bg-[url('./assets/img/bg-2.png')] w-screen h-screen bg-cover  p-3 md:p-12 " id="contact">
                 <video id="bg-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay playsinline>
                     <source src="/new.mp4" type="video/mp4">
                     
@@ -800,7 +820,7 @@ span, p{
         
             <script src="/script.js"></script>
 
-    </div>
+  
     <!--======================END CONTENT======================-->
 
     <!--======================JS LIBRARY======================-->
