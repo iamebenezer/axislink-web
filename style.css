@@ -4956,7 +4956,7 @@ html {
   .frame-48096463 {
     grid-row-gap: 30px;
     -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(5px);
     background-color: #ffffff1a;
     border: 1px solid #ffffff26;
     border-radius: 20px;
@@ -6710,6 +6710,7 @@ html {
   .div-block-10 {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    
     text-align: center;
     flex-flow: column;
     justify-content: center;
@@ -12973,7 +12974,7 @@ html {
   
     .frame-48096463 {
       -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(5px);
       width: 100%;
       padding-left: 10px;
       padding-right: 10px;
